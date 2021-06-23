@@ -19,6 +19,9 @@ dbConnection();
 //variables entorno
 //console.log(process.env);
 
+//DIRECTORIO PUBLICO
+app.use( express.static('public') );
+
 //rutas pregunta y respuesta  y controlador
 app.use( '/api/usuarios', require('./routes/usuarios') );
 app.use( '/api/login', require('./routes/auth') );
