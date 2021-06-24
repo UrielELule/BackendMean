@@ -96,12 +96,26 @@ const googleSignIn = async( req, resp = response ) => {
         });
     }
 
+}
 
-    
+//para guardar el token en el storage y darle nueva vida al token
+const renewToken = async(req, res = response) => {
+
+    const uid = req.uid;
+
+    //generamos el token 
+    const token = await generarJWT( uid )
+
+    res.json({
+        ok: true,
+        uid,
+        token
+    });
 }
 
 module.exports = {
     login,
-    googleSignIn
+    googleSignIn,
+    renewToken
 }
 

@@ -9,7 +9,8 @@ const dbConnection = async () => {
         await mongoose.connect( process.env.DB_CNN, {
             useNewUrlParser: true, 
             useUnifiedTopology: true,
-            useCreateIndex: true
+            useCreateIndex: true,
+            useFindAndModify: false//agregado para que no de error al hacer update
         });
         //mensaje de succesfull
         console.log('BD Online');
